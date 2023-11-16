@@ -14,5 +14,9 @@ function cherrytheme_enqueue_styles()
 add_action('wp_enqueue_scripts', 'cherrytheme_enqueue_styles');
 
 // ACF
+if (!defined( 'GA_DIR_PATH' )) {
+	define('GA_DIR_PATH', untrailingslashit(get_template_directory()));
+}
+
 require_once 'inc/acf.php';
 $acf_blocks = new ACF_GA_Blocks();
