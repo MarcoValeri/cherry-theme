@@ -1,9 +1,9 @@
 <?php
 // ACF value
-$title = get_field('title');
+$testimonialTitle = get_field('testimonial_title');
 
 ?>
 
 <div class="title">
-    <h2><?= $title; ?></h2>
+    <h2><?= $testimonialTitle; ?></h2>
 </div>
