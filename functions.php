@@ -8,7 +8,11 @@ function cherrytheme_enqueue_styles()
     wp_enqueue_style('main-css', get_stylesheet_directory_uri() . '/assets/styles/main.css', [], time(), 'all');
 
     // Load JS files
-    wp_enqueue_script('main-js', get_stylesheet_directory_uri() . '/assets/js/main.js', [], time(), 'all');
+    wp_enqueue_script('main-js', get_stylesheet_directory_uri() . '/assets/js/main.js', [], 1, true);
 }
 
 add_action('wp_enqueue_scripts', 'cherrytheme_enqueue_styles');
+
+// ACF
+require_once 'inc/acf.php';
+$acf_blocks = new ACF_GA_Blocks();
