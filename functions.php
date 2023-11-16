@@ -10,13 +10,11 @@ function cherrytheme_enqueue_styles()
     // Load JS files
     wp_enqueue_script('main-js', get_stylesheet_directory_uri() . '/assets/js/main.js', [], 1, true);
 }
-
 add_action('wp_enqueue_scripts', 'cherrytheme_enqueue_styles');
 
 // ACF
-if (!defined( 'GA_DIR_PATH' )) {
-	define('GA_DIR_PATH', untrailingslashit(get_template_directory()));
+function cherrytheme_register_acf_blocks()
+{
+    register_block_type(__DIR__ . '/blocks/title');
 }
-
-require_once 'inc/acf.php';
-$acf_blocks = new ACF_GA_Blocks();
+add_action('init', 'cherrytheme_register_acf_blocks');
